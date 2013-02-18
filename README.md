@@ -1,4 +1,3 @@
-
 Hired Theme
 ========
 
