@@ -48,9 +48,13 @@ require_once('library/translation/translation.php'); // this comes turned off by
 5. library/theme-options.php
     - adding custom theme options
 */
-require_once('library/theme-options.php'); // this comes turned off by default
+require_once('library/theme-options.php');
+/*
+5. library/theme-options.php
+    - adding custom theme options
 
-
+require_once('library/theme-options.php');
+*/
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
@@ -75,6 +79,44 @@ for the 600 x 100 image:
 You can change the names and dimensions to whatever
 you like. Enjoy!
 */
+
+/************* Job Posting Icon ********************/
+
+// Styling for the custom post type icon
+	add_action( 'admin_head', 'job_post_icon' );
+	
+	function job_post_icon() {
+	    ?>
+	    <style type="text/css" media="screen">
+	    	 
+	        #menu-posts-jobs .wp-menu-image {
+            	background: url(<?php echo get_template_directory_uri(); ?>/library/images/job-post-icon.png) no-repeat 6px -17px !important;
+            }
+       		#menu-posts-jobs:hover .wp-menu-image, #menu-posts-jobs.wp-has-current-submenu .wp-menu-image {
+            	background-position:6px 7px !important;
+            }
+            
+            #icon-edit.icon32-posts-jobs {
+	            background: url(<?php echo get_template_directory_uri(); ?>/library/images/job-post-edit.png) no-repeat 0px 0px  !important;
+            }
+            
+            @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+			    #menu-posts-jobs .wp-menu-image {
+            		background: url(<?php echo get_template_directory_uri(); ?>/library/images/job-post-icon@2x.png) no-repeat 0px -35px  !important;
+            		background-size: 32px !important;
+            		
+            	}
+	       		#menu-posts-jobs:hover .wp-menu-image, #menu-posts-jobs.wp-has-current-submenu .wp-menu-image {
+	            	background-position: 0px -2px !important;
+	            }
+	            
+	            #icon-edit.icon32-posts-jobs {
+		            background: url(<?php echo get_template_directory_uri(); ?>/library/images/job-post-edit-icon@2x.png) no-repeat 0px 0px  !important;
+            		background-size: 36px 34px !important;
+	            }
+			}
+	    </style>
+	<?php } 
 
 /************* ACTIVE SIDEBARS ********************/
 
